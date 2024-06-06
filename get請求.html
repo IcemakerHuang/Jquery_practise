@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <button>提交</button>
+  <p id="result"></p>
+
+</body>
+<script type="text/javascript">
+  // 按鈕被點擊時，會執行這個function
+  $('button').click(function() {
+    $.ajax({
+      url: 'test.html',
+    }).done(function(data) {
+    });
+  })
+  
+  $(document).ready(function() {
+    $('button').click(function(){
+      $.get('test.html', function(data, status) {
+        // alert(status)
+        $('#result').html(data)
+      })
+    })
+  });
+
+// 剛進入網頁時，會自動執行這個function
+  $.get('test.html', function(data) {
+
+    alert(data);
+
+  },)
+
+  $.get('test.txt', function(data) {
+
+    alert(data);
+
+    },)
+</script>
+</html>
